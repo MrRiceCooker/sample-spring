@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Console LogEngine -->
+    <bean id="consoleLog" class="com.ricecooker.spring.demo.log.ConsoleLog"/>
+    <bean id="consoleLogEngine" class="com.ricecooker.spring.demo.log.LogEngine">
+        <property name="log" ref="consoleLog"/>
+    </bean>
+
+    <!-- File LogEngine -->
+    <bean id="fileLog" class="com.ricecooker.spring.demo.log.FileLog">
+        <constructor-arg type="java.lang.String" value="c:\temp\temp.txt"/>
+    </bean>
+    <bean id="fileLogEngine" class="com.ricecooker.spring.demo.log.LogEngine">
+        <property name="log" ref="fileLog"/>
+    </bean>
+
+</beans>
